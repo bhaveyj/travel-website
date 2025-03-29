@@ -10,7 +10,12 @@ dotenv.config();
 const app = express();
 const prisma = new PrismaClient();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // 👈 Explicitly allow frontend origin
+    credentials: true, // 👈 Allow cookies & auth headers
+  })
+);
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
