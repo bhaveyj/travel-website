@@ -126,6 +126,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Home.css";
+import AIRecommendation from "../components/AIRecommendation";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -223,31 +224,16 @@ const Home = () => {
           </button>
         )}
       </nav>
-      <img src="/bgg.jpg" className="background-image" alt="Background" />
+      <img src="/back.jpg" className="background-image" alt="Background" />
 
       {/* Home Content */}
       <div className="home-container">
         <div className="home-content">
-          <h2>Welcome to Bon Voyage!</h2>
-          <p>
-            Your one-stop destination for personalized travel recommendations.
-          </p>
-
-          {/* AI Recommendation Box (Left) */}
-          <div className="ai-recommendation">
-            <h3>AI Travel Recommendations</h3>
-            <input
-              type="text"
-              placeholder="Enter a prompt (e.g., Suggest 5 places)"
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              className="ai-input"
-            />
-            <button onClick={fetchRecommendations} className="recommend-btn">
-              Get Recommendations
-            </button>
-            {recommendations && <p className="recommendation-text">{recommendations}</p>}
-          </div>
+        <h2 className="welcome-heading">Welcome to Bon Voyage!</h2>
+  <p className="welcome-subtext">
+    Your one-stop destination for personalized travel recommendations.
+  </p>
+          <AIRecommendation /> {/* ✅ Now using the separate component */}
 
           {/* Currency Converter (Right) */}
           <div className="currency-converter">

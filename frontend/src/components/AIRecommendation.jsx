@@ -1,64 +1,110 @@
 import React, { useState } from "react";
+import "../Home.css"; // Ensure you import the CSS file
 
 const AIRecommendation = () => {
-  const [prompt, setPrompt] = useState("");
-  const [recommendations, setRecommendations] = useState("");
+  const [destinationType, setDestinationType] = useState("");
+  const [preferredClimate, setPreferredClimate] = useState("");
+  const [budget, setBudget] = useState("");
+  const [tripDuration, setTripDuration] = useState("");
+  const [recommendations, setRecommendations] = useState(null);
   const [loading, setLoading] = useState(false);
-  const token = localStorage.getItem("token"); // Assuming token is stored in localStorage after login
 
   const fetchRecommendations = async () => {
+    const token = localStorage.getItem("token");
     if (!token) {
       alert("You must be logged in to use this feature!");
       return;
     }
 
     setLoading(true);
-    setRecommendations("");
+    setRecommendations(null);
 
     try {
-      const response = await fetch("/api/ai/recommend", {
+      const response = await fetch("http://localhost:5000/api/ai/recommend", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({ destinationType, preferredClimate, budget, tripDuration }),
       });
 
       const data = await response.json();
       if (response.ok) {
-        setRecommendations(data.recommendations);
+        setRecommendations(data);
       } else {
-        setRecommendations("Error: " + data.error);
+        setRecommendations({ error: data.error });
       }
     } catch (error) {
       console.error("Request failed:", error);
-      setRecommendations("An error occurred. Please try again.");
+      setRecommendations({ error: "An error occurred. Please try again." });
     }
 
     setLoading(false);
   };
 
   return (
-    <div style={{ maxWidth: "500px", margin: "auto", textAlign: "center" }}>
-      <h2>AI Travel Recommendations</h2>
-      
-      <textarea
-        rows="3"
-        placeholder="Enter your prompt..."
-        value={prompt}
-        onChange={(e) => setPrompt(e.target.value)}
-        style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+    <div className="ai-recommendation">
+      <h3>AI Travel Recommendations</h3>
+
+      {/* Destination Type Input */}
+      <input
+        type="text"
+        placeholder="Enter Destination Type (e.g., Beach, Mountains)"
+        value={destinationType}
+        onChange={(e) => setDestinationType(e.target.value)}
+        className="ai-input"
       />
 
-      <button onClick={fetchRecommendations} disabled={loading} style={{ padding: "10px", cursor: "pointer" }}>
+      {/* Climate Preference Input */}
+      <input
+        type="text"
+        placeholder="Preferred Climate (e.g., Warm, Cold)"
+        value={preferredClimate}
+        onChange={(e) => setPreferredClimate(e.target.value)}
+        className="ai-input"
+      />
+
+      {/* Budget Input */}
+      <input
+        type="number"
+        placeholder="Enter Budget in USD"
+        value={budget}
+        onChange={(e) => setBudget(e.target.value)}
+        className="ai-input"
+      />
+
+      {/* Trip Duration Input */}
+      <input
+        type="number"
+        placeholder="Trip Duration in Days"
+        value={tripDuration}
+        onChange={(e) => setTripDuration(e.target.value)}
+        className="ai-input"
+      />
+
+      {/* Fetch AI Recommendations Button */}
+      <button onClick={fetchRecommendations} disabled={loading} className="recommend-btn">
         {loading ? "Loading..." : "Get Recommendations"}
       </button>
 
+      {/* Display AI Response */}
       {recommendations && (
-        <div style={{ marginTop: "20px", padding: "10px", border: "1px solid #ccc", background: "#f9f9f9" }}>
-          <strong>AI Response:</strong>
-          <p>{recommendations}</p>
+        <div className="recommendation-box">
+          {recommendations.error ? (
+            <p style={{ color: "red" }}>{recommendations.error}</p>
+          ) : (
+            <>
+              <h4>{recommendations.name}</h4>
+              <p className="estimated-budget"><strong>Estimated Budget:</strong> {recommendations.estimatedBudget} USD</p>
+              <p><strong>Places to Visit:</strong></p>
+              <ul>
+                {recommendations.placesToVisit.map((place, index) => (
+                  <li key={index}>{place}</li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       )}
     </div>

@@ -18,14 +18,14 @@
   }
 /* Background Image */
 .background-image {
-  position: absolute;
-  top: 60px; /* Adjust if navbar height is different */
+  position: fixed;
+  top: 0; /* Adjust if navbar height is different */
   left: 0;
   width: 100%;
   height: 100vh;
   object-fit: cover;
   border: 2px solid red;
-  opacity: 0.2; /* Adjust opacity */
+  opacity: 0.4; /* Adjust opacity */
   z-index: -1; /* Send it behind the content */
 }
 
@@ -76,14 +76,14 @@
   
   .home-content h2 {
     font-size: 36px;
-    color: #222;
+    color: #696bdd;
     margin-bottom: 15px;
     animation: fadeInUp 1s ease-in-out;
   }
   
   .home-content p {
     font-size: 20px;
-    color: #555;
+    color: #0e853e;
     line-height: 1.6;
     animation: fadeInUp 1.2s ease-in-out;
   }
@@ -98,18 +98,22 @@
     text-align: center;
     position: absolute;
     right: -350px; /* Stays aligned to the right */
-    top: 180px; /* Moved further down */
+    top: 180px;
+    animation: fadeInScale 0.8s ease-in-out; /* Smooth animation */
+    transform-origin: top right; /* Moved further down */
   }
   
   .currency-converter h3 {
     font-size: 22px;
     margin-bottom: 15px;
+    
   }
   
   .converter-inputs {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
   }
   
   .converter-inputs input,
@@ -127,10 +131,12 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
   }
   
   .convert-btn:hover {
     background: #218838;
+    transform: scale(1.05);
   }
   
   /* Converted Text */
@@ -144,37 +150,143 @@
     margin-top: 90px;
     margin-left: 50px;
     width: 100%;
-    max-width: 500px; /* Keep it consistent */
-    padding: 15px;
+    max-width: 550px; /* Slightly larger for better readability */
+    padding: 20px;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    transition: transform 0.3s ease-in-out;
   }
   
-  /* Input box styling */
+  /* Hover effect */
+  .ai-recommendation:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Title Styling */
+  .ai-recommendation h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Input Fields */
   .ai-input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s;
   }
   
-  /* Button styling */
+  .ai-input:focus {
+    border: 1px solid #007bff;
+    outline: none;
+  }
+  
+  /* Get Recommendations Button */
   .recommend-btn {
     width: 100%;
-    background-color: #4caf50;
+    background: linear-gradient(to right, #007bff, #00c6ff); /* Gradient like Navbar */
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
   }
   
   .recommend-btn:hover {
-    background-color: #45a049;
+    background: linear-gradient(to right, #0056b3, #0099cc);
   }
-
+  
+  /* Recommendation Box */
+  .recommendation-box {
+    background: #f8f9fa;
+    border-left: 5px solid #007bff;
+    padding: 18px;
+    margin-top: 15px;
+    border-radius: 6px;
+    text-align: left;
+    animation: fadeInUp 0.8s ease-in-out;
+  }
+  
+  /* Destination Title */
+  .recommendation-box h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 8px;
+  }
+  
+  /* Budget Styling */
+  .estimated-budget {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+    margin-bottom: 8px;
+  }
+  
+  /* Places to Visit List */
+  .recommendation-box ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .recommendation-box li {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  /* Custom Bullet Points */
+  .recommendation-box li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #007bff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .welcome-heading {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Styling for the subtext */
+  .welcome-subtext {
+    font-size: 20px;
+    font-weight: 400;
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+  .welcome-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-right: 20px; /* Adds space between text and button */
+  }
+  
 
   
   /* Smooth Animations */
@@ -188,4 +300,26 @@
       transform: translateY(0);
     }
   }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
   
+  /* Generic Fade-In Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
