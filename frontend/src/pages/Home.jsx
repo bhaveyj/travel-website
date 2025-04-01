@@ -1,5 +1,3 @@
-
-
 // import React, { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 // import axios from "axios";
@@ -12,7 +10,6 @@
 //   const [toCurrency, setToCurrency] = useState("INR");
 //   const [converted, setConverted] = useState("");
 //   const [user, setUser] = useState(null);
-  
 
 //   useEffect(() => {
 //     // Check if user is logged in
@@ -68,7 +65,6 @@
 //         )}
 //       </nav>
 //       <img src="/bgg.jpg" className="background-image" alt="Background" />
-
 
 //       {/* Home Content */}
 //       <div className="home-container">
@@ -127,6 +123,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Home.css";
 import AIRecommendation from "../components/AIRecommendation";
+import WeatherMiniMap from "../components/Map";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -228,13 +225,13 @@ const Home = () => {
 
       {/* Home Content */}
       <div className="home-container">
+        {/* <div className="map-container"><WeatherMiniMap /></div> */}
         <div className="home-content">
-        <h2 className="welcome-heading">Welcome to Bon Voyage!</h2>
-  <p className="welcome-subtext">
-    Your one-stop destination for personalized travel recommendations.
-  </p>
+          <h2 className="welcome-heading">Welcome to Bon Voyage!</h2>
+          <p className="welcome-subtext">
+            Your one-stop destination for personalized travel recommendations.
+          </p>
           <AIRecommendation /> {/* ✅ Now using the separate component */}
-
           {/* Currency Converter (Right) */}
           <div className="currency-converter">
             <h3>Currency Converter</h3>
@@ -278,4 +275,3 @@ const Home = () => {
 };
 
 export default Home;
-
