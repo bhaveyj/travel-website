@@ -1,6 +1,26 @@
 .auth-container {
-  width: 350px;
-  margin: 50px auto;
+  display: flex; /* Added to enable flexbox layout */
+  height: 100vh; /* Make the container take full viewport height */
+}
+
+.left-side {
+  flex: 1; /* Take up half of the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f9f9f9; /* Optional: Light background for left side */
+}
+
+.right-side {
+  flex: 1; /* Take up half of the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-side form {
+  width: 350px; /* Keep the form width as before */
   padding: 20px;
   background: #f4f4f4;
   border-radius: 8px;
@@ -52,3 +72,13 @@ h2 {
   text-decoration: underline;
 }
 
+/* Optional: Styles for the left side text */
+.left-side h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.left-side p {
+  font-size: 1.2em;
+  text-align: center;
+}
