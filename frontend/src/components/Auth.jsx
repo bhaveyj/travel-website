@@ -29,7 +29,7 @@ const Auth = () => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", res.data.user.name); // Store username
         navigate("/home");
-        window.location.reload(); // Refresh to update navbar
+        window.location.reload(); 
       }
     } catch (error) {
       console.error("Error:", error.response?.data || error.message);

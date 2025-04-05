@@ -9,10 +9,8 @@ app.use(cors());
 
 const PORT = 5000;
 
-// OpenWeatherMap Tile Layer URL
 const WEATHER_TILE_URL = `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${process.env.OPENWEATHER_API_KEY}`;
 
-// API to send Weather Tile URL
 app.get("/weather-map", (req, res) => {
   res.json({ tileUrl: WEATHER_TILE_URL });
 });

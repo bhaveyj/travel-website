@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Home.css"; // Ensure you import the CSS file
+import "../Home.css";
 
 const AIRecommendation = () => {
   const [destinationType, setDestinationType] = useState("");

@@ -12,8 +12,8 @@ const prisma = new PrismaClient();
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // 👈 Explicitly allow frontend origin
-    credentials: true, // 👈 Allow cookies & auth headers
+    origin: "http://localhost:5173",
+    credentials: true,
   })
 );
 app.use(express.json());
@@ -26,7 +26,6 @@ app.get("/", (req, res) => {
   res.send("Welcome to AI Travel API! 🚀");
 });
 
-// Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
