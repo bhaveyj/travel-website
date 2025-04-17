@@ -45,6 +45,19 @@ const Home = () => {
       {/* Navbar */}
       <nav className="navbar">
         <h1 className="brand">Bon Voyage</h1>
+        <button className="btn" onClick={() => window.location.reload()}>
+          Home
+        </button>
+        <button className="btn" onClick={() => navigate("/about")}>
+          About
+        </button>
+        <button className="btn" onClick={() => navigate("/home")}>
+          Hotels
+        </button>
+        <button className="btn" onClick={() => navigate("/home")}>
+          Flights
+        </button>
+
         {user ? (
           <div>
             <span className="welcome-text">Welcome, {user}</span>
@@ -113,6 +126,83 @@ const Home = () => {
             </button>
           </div>
           {converted && <p className="converted-text">≈ {converted}</p>}
+        </div>
+      </div>
+
+      {/* Featured Destinations Section */}
+      <div className="featured-section">
+        <h2 className="section-title">Featured Destinations</h2>
+        <div className="destinations-grid">
+          <div className="destination-card">
+            <div className="destination-image" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')" }}></div>
+            <div className="destination-info">
+              <h3>Bali, Indonesia</h3>
+              <p>Tropical paradise with beautiful beaches, rich culture, and stunning landscapes.</p>
+              <div className="destination-meta">
+                <span>Best Time: April-October</span>
+                <span>Avg. Cost: $50-100/day</span>
+              </div>
+            </div>
+          </div>
+          <div className="destination-card">
+            <div className="destination-image" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')" }}></div>
+            <div className="destination-info">
+              <h3>Paris, France</h3>
+              <p>The city of love, art, fashion, and gastronomy with iconic landmarks.</p>
+              <div className="destination-meta">
+                <span>Best Time: April-June, Sept-Oct</span>
+                <span>Avg. Cost: $150-200/day</span>
+              </div>
+            </div>
+          </div>
+          <div className="destination-card">
+            <div className="destination-image" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')" }}></div>
+            <div className="destination-info">
+              <h3>Tokyo, Japan</h3>
+              <p>A fascinating blend of traditional culture and cutting-edge technology.</p>
+              <div className="destination-meta">
+                <span>Best Time: March-May, Sept-Nov</span>
+                <span>Avg. Cost: $100-150/day</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Travel Tips Section */}
+      <div className="travel-tips-section">
+        <h2 className="section-title">Travel Tips</h2>
+        <div className="tips-container">
+          <div className="tip-card">
+            <div className="tip-icon">✈️</div>
+            <h3>Booking Flights</h3>
+            <p>Book flights 6-8 weeks in advance for the best prices. Consider flying on weekdays for lower fares.</p>
+          </div>
+          <div className="tip-card">
+            <div className="tip-icon">🏨</div>
+            <h3>Finding Accommodations</h3>
+            <p>Look for accommodations in less touristy areas for better prices. Read reviews carefully before booking.</p>
+          </div>
+          <div className="tip-card">
+            <div className="tip-icon">💰</div>
+            <h3>Budgeting</h3>
+            <p>Set a daily budget and track your expenses. Look for free activities and local food options to save money.</p>
+          </div>
+          <div className="tip-card">
+            <div className="tip-icon">📱</div>
+            <h3>Travel Apps</h3>
+            <p>Download offline maps, translation apps, and local transportation apps before your trip.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Newsletter Signup */}
+      <div className="newsletter-section">
+        <h2 className="section-title">Stay Updated</h2>
+        <p className="newsletter-text">Subscribe to our newsletter for travel tips, deals, and destination guides.</p>
+        <div className="newsletter-form">
+          <input type="email" placeholder="Enter your email" className="newsletter-input" />
+          <button className="newsletter-btn">Subscribe</button>
         </div>
       </div>
     </div>

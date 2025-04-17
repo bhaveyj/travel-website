@@ -1,6 +1,7 @@
 .auth-container {
   display: flex; /* Added to enable flexbox layout */
   height: 100vh; /* Make the container take full viewport height */
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .left-side {
@@ -9,7 +10,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f9f9f9; /* Optional: Light background for left side */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
 }
 
 .right-side {
@@ -17,68 +20,94 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .right-side form {
   width: 350px; /* Keep the form width as before */
-  padding: 20px;
-  background: #f4f4f4;
-  border-radius: 8px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.right-side form:hover {
+  transform: translateY(-5px);
 }
 
 h2 {
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 25px;
+  color: #2d3748;
+  font-size: 28px;
+  font-weight: 600;
 }
 
 .auth-form input {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px;
+  margin: 12px 0;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.auth-form input:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .auth-form button {
   width: 100%;
-  padding: 10px;
-  background: #007bff;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 15px;
 }
 
 .auth-form button:hover {
-  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
 }
 
 .toggle-auth {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 14px;
-  color: #333;
+  color: #4a5568;
 }
 
 .toggle-auth span {
-  color: #007bff;
+  color: #667eea;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .toggle-auth span:hover {
-  text-decoration: underline;
+  color: #764ba2;
+  text-decoration: none;
 }
 
 /* Optional: Styles for the left side text */
 .left-side h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
+  font-size: 3.5em;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .left-side p {
-  font-size: 1.2em;
+  font-size: 1.3em;
   text-align: center;
+  line-height: 1.6;
+  opacity: 0.9;
 }
