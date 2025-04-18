@@ -51,8 +51,8 @@ const Home = () => {
         <button className="btn" onClick={() => navigate("/about")}>
           About
         </button>
-        <button className="btn" onClick={() => navigate("/home")}>
-          Hotels
+        <button className="btn" onClick={() => navigate("/blog")}>
+          Blog
         </button>
         <button className="btn" onClick={() => navigate("/home")}>
           Flights

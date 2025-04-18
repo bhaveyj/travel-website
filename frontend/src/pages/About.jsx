@@ -101,6 +101,22 @@ const About = () => {
                   with our user-friendly platform.
                 </p>
               </div>
+              <div className="feature-card">
+                <div className="feature-icon">💰</div>
+                <h3>Best Price Guarantee</h3>
+                <p>
+                  Our AI constantly monitors prices to ensure you get the best deals
+                  on flights, hotels, and activities.
+                </p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">🌱</div>
+                <h3>Sustainable Travel</h3>
+                <p>
+                  Eco-friendly travel options and carbon footprint tracking to help
+                  you make environmentally conscious travel decisions.
+                </p>
+              </div>
             </div>
           </section>
 

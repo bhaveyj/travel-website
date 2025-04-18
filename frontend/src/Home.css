@@ -145,7 +145,7 @@ body {
 
 .convert-btn {
   padding: 10px;
-  background: #28a745;
+  background: linear-gradient(to right, #007bff, #00c6ff);
   border: none;
   color: white;
   border-radius: 5px;
@@ -155,7 +155,7 @@ body {
 }
 
 .convert-btn:hover {
-  background: #218838;
+  background: linear-gradient(to right, #0056b3, #0099cc);
   transform: scale(1.05);
 }
 
