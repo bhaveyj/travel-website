@@ -39,7 +39,7 @@ const Flights = () => {
         setLoading(false);
         return;
       }
-      const API_URL = process.env.VITE_BACKEND_URL;
+      const API_URL = import.meta.env.VITE_BACKEND_URL;
 
       const response = await axios.post(`${API_URL}/api/flights/search`, searchParams, {
         headers: {
