@@ -128,8 +128,8 @@ const About = () => {
             </p>
             <div className="contact-info">
               <p>📧 Email: hello@bonvoyage.com</p>
-              <p>📱 Phone: +1 (555) 123-4567</p>
-              <p>📍 Location: San Francisco, CA</p>
+              <p>📱 Phone: +91 98xxxxxxxx </p>
+              <p>📍 Location: New Delhi, IN</p>
             </div>
             <button className="cta-button" onClick={() => navigate("/home")}>
               Plan Your Trip

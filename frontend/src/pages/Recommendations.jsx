@@ -66,10 +66,10 @@ const Recommendations = () => {
           <button className="btn" onClick={() => navigate("/about")}>
             About
           </button>
-          <button className="btn" onClick={() => navigate("/home")}>
-            Hotels
+          <button className="btn" onClick={() => navigate("/blog")}>
+            Blog
           </button>
-          <button className="btn" onClick={() => navigate("/home")}>
+          <button className="btn" onClick={() => navigate("/flights")}>
             Flights
           </button>
         </div>
@@ -90,7 +90,7 @@ const Recommendations = () => {
               </div>
               <div className="preference-item">
                 <h4>Budget</h4>
-                <p>${formData.budget} USD</p>
+                <p>${formData.budget}</p>
               </div>
               <div className="preference-item">
                 <h4>Trip Duration</h4>
@@ -118,7 +118,7 @@ const Recommendations = () => {
                 <h3>{recommendations.name}</h3>
                 <div className="budget-section">
                   <h4>Estimated Budget</h4>
-                  <p className="budget-amount">${recommendations.estimatedBudget} USD</p>
+                  <p className="budget-amount">{recommendations.estimatedBudget} </p>
                 </div>
                 <div className="places-section">
                   <h4>Places to Visit</h4>

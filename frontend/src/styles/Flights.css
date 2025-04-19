@@ -1,6 +1,8 @@
 .flights-page {
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #e8f4fc;
+  padding-bottom: 2rem;
+  background-image: linear-gradient(135deg, #e8f4fc 0%, #d1e9f9 100%);
 }
 
 .flights-container {
@@ -12,41 +14,69 @@
 .search-section {
   background-color: white;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 1200px;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .search-section h2 {
+  text-align: center;
   margin-bottom: 1.5rem;
   color: #333;
-  text-align: center;
+  font-size: 1.8rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.search-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #2c3e50, #3498db);
+  border-radius: 3px;
 }
 
 .search-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
 .form-group input,
 .form-group select {
+  width: 100%;
   padding: 0.8rem;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  background-color: white;
 }
 
 .passengers {
@@ -55,12 +85,8 @@
   gap: 1rem;
 }
 
-.passengers div {
-  display: flex;
-  flex-direction: column;
-}
-
 .passengers label {
+  display: block;
   margin-bottom: 0.5rem;
   color: #666;
   font-size: 0.9rem;
@@ -69,52 +95,87 @@
 .search-btn {
   grid-column: 1 / -1;
   padding: 1rem;
-  background-color: #007bff;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .search-btn:hover {
-  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.search-btn:active {
+  transform: translateY(0);
 }
 
 .search-btn:disabled {
-  background-color: #ccc;
+  background: #ccc;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .results-section {
   margin-top: 2rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .error-message {
   background-color: #fee;
   color: #c00;
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 1rem;
   text-align: center;
+  animation: fadeIn 0.5s ease;
 }
 
 .loading {
   text-align: center;
   padding: 2rem;
   color: #666;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
 }
 
 .flight-results {
   margin-top: 2rem;
-  padding: 0 1rem;
+  animation: fadeIn 0.5s ease;
 }
 
 .flight-results h2 {
   text-align: center;
   margin-bottom: 2rem;
   color: #333;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.flight-results h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #2c3e50, #3498db);
+  border-radius: 3px;
 }
 
 .flight-cards {
@@ -128,12 +189,26 @@
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: slideUp 0.5s ease;
+  animation-fill-mode: both;
 }
 
 .flight-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .flight-header {
@@ -141,16 +216,22 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
 }
 
 .flight-header h3 {
   margin: 0;
   color: #333;
+  font-size: 1.2rem;
 }
 
 .flight-number {
   color: #666;
   font-size: 0.9rem;
+  background-color: #f5f5f5;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
 }
 
 .flight-details {
@@ -179,6 +260,7 @@
 .departure p, .arrival p {
   margin: 0;
   color: #333;
+  font-weight: 500;
 }
 
 .duration {
@@ -191,6 +273,11 @@
   margin: 0;
   color: #666;
   font-size: 0.9rem;
+  background-color: #f5f5f5;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
 }
 
 .flight-line {
@@ -223,17 +310,25 @@
 .book-button {
   width: 100%;
   padding: 0.75rem;
-  background: #2c3e50;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .book-button:hover {
-  background: #34495e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.book-button:active {
+  transform: translateY(0);
 }
 
 .no-results {
@@ -242,7 +337,13 @@
   color: #666;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (max-width: 768px) {

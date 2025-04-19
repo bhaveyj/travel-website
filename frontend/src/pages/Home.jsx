@@ -109,17 +109,47 @@ const Home = () => {
               value={fromCurrency}
               onChange={(e) => setFromCurrency(e.target.value)}
             >
-              <option value="USD">USD</option>
-              <option value="INR">INR</option>
-              <option value="EUR">EUR</option>
+              <option value="USD">USD - US Dollar</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="GBP">GBP - British Pound</option>
+              <option value="JPY">JPY - Japanese Yen</option>
+              <option value="AUD">AUD - Australian Dollar</option>
+              <option value="CAD">CAD - Canadian Dollar</option>
+              <option value="CHF">CHF - Swiss Franc</option>
+              <option value="CNY">CNY - Chinese Yuan</option>
+              <option value="INR">INR - Indian Rupee</option>
+              <option value="SGD">SGD - Singapore Dollar</option>
+              <option value="NZD">NZD - New Zealand Dollar</option>
+              <option value="MXN">MXN - Mexican Peso</option>
+              <option value="HKD">HKD - Hong Kong Dollar</option>
+              <option value="TRY">TRY - Turkish Lira</option>
+              <option value="KRW">KRW - South Korean Won</option>
+              <option value="BRL">BRL - Brazilian Real</option>
+              <option value="RUB">RUB - Russian Ruble</option>
+              <option value="ZAR">ZAR - South African Rand</option>
             </select>
             <select
               value={toCurrency}
               onChange={(e) => setToCurrency(e.target.value)}
             >
-              <option value="INR">INR</option>
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
+              <option value="USD">USD - US Dollar</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="GBP">GBP - British Pound</option>
+              <option value="JPY">JPY - Japanese Yen</option>
+              <option value="AUD">AUD - Australian Dollar</option>
+              <option value="CAD">CAD - Canadian Dollar</option>
+              <option value="CHF">CHF - Swiss Franc</option>
+              <option value="CNY">CNY - Chinese Yuan</option>
+              <option value="INR">INR - Indian Rupee</option>
+              <option value="SGD">SGD - Singapore Dollar</option>
+              <option value="NZD">NZD - New Zealand Dollar</option>
+              <option value="MXN">MXN - Mexican Peso</option>
+              <option value="HKD">HKD - Hong Kong Dollar</option>
+              <option value="TRY">TRY - Turkish Lira</option>
+              <option value="KRW">KRW - South Korean Won</option>
+              <option value="BRL">BRL - Brazilian Real</option>
+              <option value="RUB">RUB - Russian Ruble</option>
+              <option value="ZAR">ZAR - South African Rand</option>
             </select>
             <button onClick={convertCurrency} className="convert-btn">
               Convert
