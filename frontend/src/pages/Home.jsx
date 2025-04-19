@@ -78,7 +78,7 @@ const Home = () => {
           </button>
         )}
       </nav>
-      <img src="/back.jpg" className="background-image" alt="Background" />
+      
 
       {/* Welcome Heading and Subtext */}
       <div className="welcome-heading-container">

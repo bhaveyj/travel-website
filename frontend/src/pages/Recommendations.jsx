@@ -9,14 +9,12 @@ const Recommendations = () => {
   const [formData, setFormData] = useState(null);
 
   useEffect(() => {
-    // Get the form data from localStorage
     const storedData = localStorage.getItem("recommendationData");
     if (storedData) {
       const parsedData = JSON.parse(storedData);
       setFormData(parsedData);
       fetchRecommendations(parsedData);
     } else {
-      // If no data is found, redirect back to home
       navigate("/home");
     }
   }, [navigate]);

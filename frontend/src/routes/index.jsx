@@ -9,7 +9,6 @@ import Blog from '../pages/Blog';
 import Flights from '../pages/Flights';
 import Loading from '../components/Loading';
 
-// Create a wrapper component to handle loading state
 const LoadingWrapper = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const location = useLocation();
@@ -18,7 +17,7 @@ const LoadingWrapper = ({ children }) => {
         setIsLoading(true);
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 800); // Show loader for at least 800ms to avoid flashing
+        }, 800);
 
         return () => clearTimeout(timer);
     }, [location]);
