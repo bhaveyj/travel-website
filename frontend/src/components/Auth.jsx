@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import "../Auth.css";
 
 const Auth = () => {
-  const [isRegister, setIsRegister] = useState(true);
+  const location = useLocation();
+  const isRegisterPage = location.pathname === "/register";
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const navigate = useNavigate();
 
@@ -15,15 +16,15 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = isRegister
+      const url = isRegisterPage
         ? "http://localhost:5000/api/auth/register"
         : "http://localhost:5000/api/auth/login";
 
       const res = await axios.post(url, formData, { withCredentials: true });
-      console.log(`${isRegister ? "Registration" : "Login"} successful:`, res.data);
+      console.log(`${isRegisterPage ? "Registration" : "Login"} successful:`, res.data);
 
-      if (isRegister) {
-        setIsRegister(false); // Switch to login after registering
+      if (isRegisterPage) {
+        navigate("/login"); // Navigate to login after successful registration
       } else {
         // Store user info in localStorage after login
         localStorage.setItem("token", res.data.token);
@@ -48,19 +49,19 @@ const Auth = () => {
 
       <div className="right-side" style={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
         <div style={{ width: "300px" }}>
-          <h2>{isRegister ? "Register" : "Login"}</h2>
+          <h2>{isRegisterPage ? "Register" : "Login"}</h2>
           <form onSubmit={handleSubmit} className="auth-form">
-            {isRegister && (
+            {isRegisterPage && (
               <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
             )}
             <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
             <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-            <button type="submit">{isRegister ? "Register" : "Login"}</button>
+            <button type="submit">{isRegisterPage ? "Register" : "Login"}</button>
           </form>
           <p className="toggle-auth">
-            {isRegister ? "Already registered?" : "Not registered yet?"}
-            <span onClick={() => setIsRegister(!isRegister)}>
-              {isRegister ? " Login here" : " Register here"}
+            {isRegisterPage ? "Already registered?" : "Not registered yet?"}
+            <span onClick={() => navigate(isRegisterPage ? "/login" : "/register")}>
+              {isRegisterPage ? " Login here" : " Register here"}
             </span>
           </p>
         </div>
