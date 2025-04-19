@@ -13,7 +13,7 @@ const Auth = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const API_URL = process.env.REACT_APP_BACKEND_URL;
+  const API_URL = process.env.VITE_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

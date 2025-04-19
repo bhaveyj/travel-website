@@ -19,7 +19,7 @@ const Recommendations = () => {
     }
   }, [navigate]);
 
-  const API_URL = process.env.REACT_APP_BACKEND_URL + "/api/ai/recommend";
+  const API_URL = process.env.VITE_BACKEND_URL + "/api/ai/recommend";
 
 
   const fetchRecommendations = async (data) => {
