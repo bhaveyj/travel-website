@@ -106,7 +106,7 @@ const Blog = () => {
           <button className="btn" onClick={() => navigate('/home')}>Home</button>
           <button className="btn" onClick={() => navigate('/about')}>About</button>
           <button className="btn" onClick={() => navigate('/blog')}>Blog</button>
-          <button className="btn" onClick={() => navigate('/home')}>Flights</button>
+          <button className="btn" onClick={() => navigate('/flights')}>Flights</button>
         </div>
       </nav>
 

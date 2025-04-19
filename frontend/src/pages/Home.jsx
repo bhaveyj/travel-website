@@ -54,7 +54,7 @@ const Home = () => {
         <button className="btn" onClick={() => navigate("/blog")}>
           Blog
         </button>
-        <button className="btn" onClick={() => navigate("/home")}>
+        <button className="btn" onClick={() => navigate("/flights")}>
           Flights
         </button>
 

@@ -5,6 +5,7 @@ import { PrismaClient } from "@prisma/client";
 import authRoute from "./routes/authRoute.js";
 import aiRoute from "./routes/aiRoute.js";
 import currencyRoute from "./routes/currencyRoute.js";
+import flightsRoute from "./routes/flightsRoute.js";
 
 dotenv.config();
 const app = express();
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/ai", aiRoute);
 app.use("/api/currency", currencyRoute);
+app.use("/api/flights", flightsRoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome to AI Travel API! 🚀");
