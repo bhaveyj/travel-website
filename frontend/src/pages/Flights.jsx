@@ -39,8 +39,9 @@ const Flights = () => {
         setLoading(false);
         return;
       }
+      const API_URL = process.env.REACT_APP_BACKEND_URL;
 
-      const response = await axios.post('http://localhost:5000/api/flights/search', searchParams, {
+      const response = await axios.post(`${API_URL}/api/flights/search`, searchParams, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

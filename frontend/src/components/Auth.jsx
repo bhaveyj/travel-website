@@ -13,12 +13,14 @@ const Auth = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const API_URL = process.env.REACT_APP_BACKEND_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const url = isRegisterPage
-        ? "http://localhost:5000/api/auth/register"
-        : "http://localhost:5000/api/auth/login";
+      ? `${API_URL}/api/auth/register`
+      : `${API_URL}/api/auth/login`;
 
       const res = await axios.post(url, formData, { withCredentials: true });
       console.log(`${isRegisterPage ? "Registration" : "Login"} successful:`, res.data);

@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/ai/recommend";
+const API_URL = process.env.REACT_APP_BACKEND_URL + "/api/ai/recommend";
 
 export const getRecommendations = async (userInput) => {
   const token = localStorage.getItem("token"); 
