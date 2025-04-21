@@ -12,7 +12,7 @@ It includes features like AI-generated travel plans, live currency conversion, a
 - 🔥 **Global Heatmap** – View a temperature-based heatmap using OpenWeather for weather-aware travel planning.
 - ✈️ **Flight Search** – Find available flights between cities using the SkyScanner API.
 - 🔐 **Authentication** – JWT-based user authentication with secure cookie handling.
-- 🧠 **Type-Safe Validation** – Zod used across frontend and backend for safe, consistent input handling.
+
 
 ---
 
@@ -23,7 +23,7 @@ It includes features like AI-generated travel plans, live currency conversion, a
 | React.js        | Express.js       | PostgreSQL        | Docker                 |
 | Tailwind CSS    | REST APIs        | Prisma ORM        | Vercel (Frontend)      |
 | Vite            | Node.js          |                  | Render (Backend)       |
-| JWT Auth        | Zod              |                  | SkyScanner, Gemini API |
+| JWT Auth        |                  |                  | SkyScanner, Gemini API |
 
 ---
 
